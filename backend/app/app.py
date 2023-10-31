@@ -9,6 +9,7 @@ its endpoints. However, this is totally subjective and can be changed.
 
 import numpy as np
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 import src.utils as utils
 import src.request_formats as requests
@@ -16,11 +17,28 @@ import src.response_formats as responses
 from src.model import WorldsWorstMovieRecommender
 
 
-stupid_model = WorldsWorstMovieRecommender()
+# frontend is also running on localhost, but from port 3000
+FRONTEND_PORT = 3000
+FRONTEND_HOST = "localhost"
 
+# only localhost connections can make requests to the backend for security
+ALLOWED_ORIGINS = [
+    f"http://{FRONTEND_HOST}:{FRONTEND_PORT}",
+    f"{FRONTEND_HOST}:{FRONTEND_PORT}"
+]
+
+
+stupid_model = WorldsWorstMovieRecommender()
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=ALLOWED_ORIGINS,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 @app.get("/echo/{input}")
 async def echo(input):

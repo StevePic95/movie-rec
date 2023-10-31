@@ -3,7 +3,7 @@ This file defines the formats for request bodies to the main backend application
 name for these is "data models", but I thought that name could get confusing since we're mostly
 working with ML models.
 
-Only in a separate file to keep things organized in the `main.py` file.
+Only in a separate file to keep things organized in the `app.py` file.
 """
 
 
