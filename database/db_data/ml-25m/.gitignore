@@ -1,0 +1,4 @@
+# MovieLens csv data is git ignored because it's too large to host on GitHub
+# (The wildcard ignores all files in this folder)
+*
+!.gitignore
