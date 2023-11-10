@@ -11,10 +11,10 @@ import numpy as np
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-import src.utils as utils
-import src.request_formats as requests
-import src.response_formats as responses
-from src.model import WorldsWorstMovieRecommender
+import app.src.utils as utils
+import app.src.request_formats as requests
+import app.src.response_formats as responses
+from app.src.model import WorldsWorstMovieRecommender
 
 
 # frontend is also running on localhost, but from port 3000

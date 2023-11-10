@@ -5,8 +5,8 @@ kinds of things that could be defined in the main script, but would end up makin
 
 import numpy as np
 
-import src.request_formats as requests
-import src.response_formats as responses
+import app.src.request_formats as requests
+import app.src.response_formats as responses
 
 
 def convert_userdata_to_model_input(userdata: requests.UserData) -> np.ndarray:

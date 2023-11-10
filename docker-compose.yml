@@ -14,7 +14,8 @@ services:
     ports:
       - "9906:3306"
     environment:
-      # bad security practices but it's just public data
+      # db security is not exactly on lockdown but there's no reason
+      # for it to be since it's public data and bound to localhost
       MYSQL_DATABASE: movie_lens
       MYSQL_USER: dev
       MYSQL_PASSWORD: dev
@@ -34,6 +35,8 @@ services:
       MYSQL_USER: dev
       MYSQL_PASSWORD: dev
       MYSQL_HOST_IP: mysql_db
+    ports:
+      - 9000:9000
 
   frontend:
     stdin_open: true
@@ -45,6 +48,8 @@ services:
     volumes:
       - ./frontend/node_modules:/app/node_modules
       - ./frontend:/app
+    ports:
+      - 3000:3000
 
   adminer:
     image: adminer:latest
