@@ -3,3 +3,4 @@ pyrightconfig.json
 backend/app/src/__pycache__
 backend/app/__pycache__
 database/db_data/persistent_data
+env

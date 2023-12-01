@@ -43,7 +43,10 @@ class UserModel:
     Model accepts data for one particular user at a time and makes relative predictions based on
     content they have already consumed. In particular, it takes two parameters.
     """
+    def __init__(self, user_preferences : np.ndarray):
+        self.user_preferences = user_preferences
 
+    @staticmethod
     def embed(user_preferences, movie_features, embedding_dim = 4):
         """
         PARAMS - 
@@ -77,7 +80,8 @@ class UserModel:
         x : movie features matrix. 
         """
         print(x)
-        
+
+    @staticmethod    
     def calculate_similarity(user_preferences : np.ndarray , movie_features : np.ndarray) -> np.ndarray:
         """
         PARAMS - 
