@@ -38,6 +38,6 @@ insert into moviesgenrescores select rt.movieId as movie_id, sum(rt.rating) as s
 
 insert into moviesgenrescores select rt.movieId as movie_id, sum(rt.rating) as score, 19 as genre_id from ratings as rt inner join movie_genre as mg on rt.movieId = mg.movie_id where mg.genre_id = 19 and rt.rating > 2.5 group by rt.movieId order by score desc;
 
-select * from moviesgenrescores where movie_id >= 0 order by score desc;
+select count(*), genre_id from moviesgenrescores group by genre_id order by genre_id asc;
 
-select * from users;
+select * from moviesgenrescores;
